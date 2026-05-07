@@ -1,0 +1,71 @@
+[project]
+name = "hyper-sales-livekit-demo"
+version = "0.1.0"
+description = "A Livekit agent of the Hyper Sales project (Demo)"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+authors = [{name = "Alexey", email = "yusufovalexey@gmail.com"}]
+dependencies = [
+    "pydantic",
+    "pydantic-settings",
+    "python-dotenv",
+    "httpx",
+    "email-validator",
+    "tzdata",
+    # LiveKit
+    "livekit",
+    "livekit-agents[mcp]",
+    "livekit-plugins-noise-cancellation",
+    "livekit-plugins-turn-detector",
+    "livekit-plugins-elevenlabs",
+    "livekit-plugins-inworld",
+    "livekit-plugins-silero",
+    "livekit-plugins-openai",
+    "livekit-plugins-anthropic",
+    "livekit-plugins-google",
+    "livekit-plugins-groq",
+    "livekit-plugins-soniox",
+]
+
+[dependency-groups]
+dev = ["ruff", "basedpyright", "pytest", "pytest-order", "pytest-asyncio"]
+
+[tool.uv]
+required-environments = [
+    "sys_platform == 'win32' and platform_machine == 'AMD64'",
+]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+torchaudio = { index = "pytorch-cpu" }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.pyright]
+typeCheckingMode = "standard"
+
+exclude = ["**/node_modules", "**/.*", "**/__pycache__", ".venv"]
+
+# Demote pedantic type variance/override issues to blue hints
+reportIncompatibleVariableOverride = "information"
+reportIncompatibleMethodOverride = "information"
+reportGeneralTypeIssues = "warning"
+
+# Let ruff handle these instead (avoid duplicate warnings)
+reportUnusedImport = "none"
+reportUnusedVariable = "none"
+
+# Silence missing stubs for third-party libs
+reportMissingTypeStubs = "none"
+
+# Silence "unknown type" noise (common with dynamic libs)
+reportUnknownMemberType = "none"
+reportUnknownArgumentType = "none"
+reportUnknownVariableType = "none"
+reportUnknownParameterType = "none"
+
+# basedpyright-specific: silence "reportAny" (very noisy)
+reportAny = "none"
