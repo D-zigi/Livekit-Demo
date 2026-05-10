@@ -3,7 +3,7 @@ Run the LiveKit worker.
 """
 from livekit.agents import cli, WorkerOptions
 from app.main import entrypoint
-from shared.core.config import settings
+from app.core.config import settings
 
 if __name__ == "__main__":
     cli.run_app(

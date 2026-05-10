@@ -4,7 +4,7 @@ Agent CRUD models
 from typing import Optional, Literal, Dict
 from pydantic import BaseModel, Field
 
-from shared.types import BusinessScopedReadModel, CallDirection
+from app.types import BusinessScopedReadModel, CallDirection
 
 # Generic types used across multiple models
 Gender = Literal["male", "female", "neutral"]

@@ -3,7 +3,7 @@ Egress Utils
 """
 from livekit import api
 from livekit.agents import JobContext
-from shared.core.config import settings
+from app.core.config import settings
 
 async def start_recording(ctx: JobContext):
     """Start recording the conversation."""

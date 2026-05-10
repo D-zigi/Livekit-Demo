@@ -2,7 +2,7 @@
 This module contains the MCP (Multi-Channel Processing) utilities for the LiveKit agent.
 """
 from livekit.agents import mcp
-from shared.core.config import settings
+from app.core.config import settings
 
 # Integrations MCP
 def get_integrations_mcp(business_id: str):

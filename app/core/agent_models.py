@@ -13,10 +13,10 @@ from google.genai.types import (
 from livekit.plugins import google, openai, elevenlabs, inworld, soniox
 from livekit.agents import NOT_GIVEN, inference
 
-from shared.core.config import settings
-from shared.models.agent import Agent, AgentRead, LanguageMap
+from app.core.config import settings
+from app.models.agent import Agent, AgentRead, LanguageMap
 
-from shared.core.agent_config import AGENT
+from app.core.agent_config import AGENT
 
 # Google
 def google_realtime_model(agent: Agent | AgentRead = AGENT, voice: bool = True) -> google.realtime.RealtimeModel:
@@ -113,13 +113,13 @@ def elevenlabs_tts_model(agent: Agent | AgentRead = AGENT):
     """Returns an ElevenLabs TTS model for the given agent."""
     return inference.TTS(
         model="elevenlabs/eleven_multilingual_v2",
-        voice="Xb7hH8MSUJpSbSDYk0k2", 
+        voice="Xb7hH8MSUJpSbSDYk0k2",
         language="he"
     )
     return elevenlabs.TTS(
         api_key=settings.ELEVENLABS_API_KEY,
         model="eleven_v3",
-        voice_id="Xb7hH8MSUJpSbSDYk0k2", 
+        voice_id="Xb7hH8MSUJpSbSDYk0k2",
         language="en"
     )
 

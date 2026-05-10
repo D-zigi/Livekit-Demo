@@ -1,13 +1,5 @@
 """Workflow definitions for LiveKit."""
+from .base_workflow import Workflow
+from .conditional_task_group import ConditionalTaskGroup
 
-from typing import Any, Dict
-
-from .meeting_booking import MeetingBookingWorkflow
-
-Workflows = str
-
-workflows: Dict[Workflows, Any] = {
-    "meeting_booking": MeetingBookingWorkflow,
-}
-
-__all__ = ["workflows"]
+__all__ = ["Workflow", "ConditionalTaskGroup"]

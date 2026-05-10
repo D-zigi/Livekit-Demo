@@ -14,9 +14,9 @@ from livekit.agents import llm
 from livekit.agents.voice.io import TimedString
 
 from app.utils.conversation import is_thought
-from app.utils.data import get_formatted_datetime_now
-from shared.models.agent import AgentRead as AgentModel
-from shared.models.agent import LanguageMap
+from app.utils.date import get_formatted_datetime_now
+from app.models.agent import AgentRead as AgentModel
+from app.models.agent import LanguageMap
 
 logger = logging.getLogger(__name__)
 

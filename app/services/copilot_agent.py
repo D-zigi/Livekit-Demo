@@ -14,7 +14,8 @@ from livekit.agents import (
     llm,
 )
 
-from app.workflows.meeting_booking import MeetingBookingWorkflow
+from app.workflows.base_workflow import Workflow
+from app.workflows.meeting_booking import MEETING_BOOKING_SCHEMA
 
 logger = logging.getLogger(__name__)
 
@@ -262,10 +263,10 @@ class CopilotAgent(Agent):
     # -------------------------------------------------------------------------
 
     async def on_enter(self) -> None:
-        result = await MeetingBookingWorkflow(
-            chat_ctx=self.chat_ctx,
-            extra_instructions=self._instructions,
-            extra_tools=self.tools,
+        result = await Workflow(
+            tasks=MEETING_BOOKING_SCHEMA.nodes,
+            edges=MEETING_BOOKING_SCHEMA.edges,
+            speaker_session=self.main_session
         )
         logger.info(f"Workflow result: {result}")
 

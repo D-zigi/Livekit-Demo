@@ -4,8 +4,8 @@ from typing import cast
 from livekit.plugins import silero
 from livekit.agents import AudioConfig, AutoSubscribe, BackgroundAudioPlayer, BuiltinAudioClip, JobContext, AgentSession
 
-from shared.core import agent_models
-from shared.core.agent_config import AGENT
+from app.core import agent_models
+from app.core.agent_config import AGENT
 
 from app.services.agent import CallAgent
 from app.services.copilot_agent import CopilotAgent

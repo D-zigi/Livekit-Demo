@@ -20,16 +20,9 @@ class Settings(BaseSettings):
     LIVEKIT_API_KEY: str
     LIVEKIT_API_SECRET: str
 
-    # APIs
-    API_URL: str
-    SERVICE_ROLE_KEY: str
-
     # MCPs
     MAIN_MCP_URL: str
     MAIN_MCP_KEY: str
-
-    # Sentry
-    SENTRY_DSN: str
 
     # Google
     GEMINI_API_KEY: str
